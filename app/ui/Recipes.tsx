@@ -1,18 +1,19 @@
-"use client";
-
-import { useState } from "react";
-import { recipeData } from "../data/recipes";
+import { RecipeType } from "../lib/definitions";
 import Recipe from "./Recipe";
 
-const Recipes = () => {
-  const [recipes, setRecipes] = useState(recipeData);
+type RecipesProps = {
+  recipes: RecipeType[];
+  getRecipeDetails: (id: number) => void;
+};
 
+const Recipes = ({ recipes, getRecipeDetails }: RecipesProps) => {
   const recipeElements = recipes.map((recipe) => (
     <Recipe
       key={recipe.id}
       id={recipe.id}
       image={recipe.image}
       name={recipe.name}
+      getRecipeDetails={getRecipeDetails}
     />
   ));
   return (

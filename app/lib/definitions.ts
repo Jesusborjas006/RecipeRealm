@@ -1,4 +1,4 @@
-export type Recipe = {
+export type RecipeType = {
   id: number;
   image: string;
   ingredients: { id: number; quantity: { amount: number; unit: string } }[];
