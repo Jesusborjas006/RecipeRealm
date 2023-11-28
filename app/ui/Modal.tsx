@@ -1,5 +1,17 @@
-const Modal = () => {
-  return <p className="border font-bold text-lg">I am a modal</p>;
+import { RecipeType } from "../lib/definitions";
+import Instructions from "./Instructions";
+
+type ModalProps = {
+  selectedRecipe: RecipeType | undefined;
+};
+
+const Modal = ({ selectedRecipe }: ModalProps) => {
+  return (
+    <div className="border">
+      <h2>{selectedRecipe?.name}</h2>
+      <Instructions recipeInstructions={selectedRecipe?.instructions} />
+    </div>
+  );
 };
 
 export default Modal;

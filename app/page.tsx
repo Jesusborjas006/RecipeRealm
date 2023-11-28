@@ -13,6 +13,8 @@ const Home = () => {
     RecipeType | undefined
   >();
 
+  // console.log(selectedRecipe);
+
   const getRecipeDetails = (id: number) => {
     setModalActive(!modalActive);
     const recipe = recipes.find((recipe) => recipe.id === id);
@@ -23,9 +25,11 @@ const Home = () => {
     <main className="max-w-[1640px] mx-auto p-8">
       <h1>RecipeRealm</h1>
 
-      {modalActive && <Modal />}
+      {modalActive && <Modal selectedRecipe={selectedRecipe} />}
 
-      <Recipes recipes={recipes} getRecipeDetails={getRecipeDetails} />
+      {!modalActive && (
+        <Recipes recipes={recipes} getRecipeDetails={getRecipeDetails} />
+      )}
     </main>
   );
 };
