@@ -1,9 +1,18 @@
 type IngredientType = {
   name: string;
+
+  // Must fix this
+  quantity: any;
 };
 
-const Ingredient = ({ name }: IngredientType) => {
-  return <li>{name}</li>;
+const Ingredient = ({ quantity, name }: IngredientType) => {
+  return (
+    <>
+      <li>
+        {quantity.amount} {quantity.unit} {name}
+      </li>
+    </>
+  );
 };
 
 export default Ingredient;

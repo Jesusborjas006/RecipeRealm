@@ -1,4 +1,4 @@
-import { RecipeType } from "../lib/definitions";
+import { IngredientType, RecipeType } from "../lib/definitions";
 import Ingredients from "./Ingredients";
 import Instructions from "./Instructions";
 
