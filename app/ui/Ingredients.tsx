@@ -1,4 +1,5 @@
 import { IngredientType } from "../lib/definitions";
+import { getRecipeIngredients } from "../lib/recipeFunctions";
 import Ingredient from "./Ingredient";
 
 type IngredientsProps = {
@@ -9,17 +10,12 @@ type IngredientsProps = {
 };
 
 const Ingredients = ({ recipeIngredients, ingredients }: IngredientsProps) => {
-  const recipeIngredientsIds = recipeIngredients?.map(
-    (ingredient) => ingredient.id
+  const ingredientsNeeded = getRecipeIngredients(
+    recipeIngredients,
+    ingredients
   );
 
-  const ingredientsForRecipe = ingredients.filter((ingredient) => {
-    return recipeIngredientsIds?.includes(ingredient.id);
-  });
-
-  console.log(ingredientsForRecipe);
-
-  const ingredientElements = ingredientsForRecipe.map((ingredient) => (
+  const ingredientElements = ingredientsNeeded.map((ingredient) => (
     <Ingredient key={ingredient.id} name={ingredient.name} />
   ));
 
