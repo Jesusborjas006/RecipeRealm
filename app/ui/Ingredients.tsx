@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { IngredientType } from "../lib/definitions";
 import { getRecipeIngredients } from "../lib/recipeFunctions";
 import Ingredient from "./Ingredient";
@@ -7,9 +8,14 @@ type IngredientsProps = {
     | { id: number; quantity: { amount: number; unit: string } }[]
     | undefined;
   ingredients: IngredientType[];
+  setTotalForRecipe: Dispatch<SetStateAction<number>>;
 };
 
-const Ingredients = ({ recipeIngredients, ingredients }: IngredientsProps) => {
+const Ingredients = ({
+  recipeIngredients,
+  ingredients,
+  setTotalForRecipe,
+}: IngredientsProps) => {
   const ingredientsNeeded = getRecipeIngredients(
     recipeIngredients,
     ingredients
@@ -27,19 +33,24 @@ const Ingredients = ({ recipeIngredients, ingredients }: IngredientsProps) => {
     />
   ));
 
+  const getIngredientCost = () => {
+    let ingredientCost = ingredientsNeeded.map(
+      (ingredient) => ingredient.estimatedCostInCents
+    );
+
+    let total = recipeIngredients!.reduce((acc, current, index) => {
+      return (acc += current.quantity.amount * ingredientCost[index]);
+    }, 0);
+
+    setTotalForRecipe(Number((total / 100).toFixed(2)));
+    return Number((total / 100).toFixed(2));
+  };
+
+  useEffect(() => {
+    setTotalForRecipe(getIngredientCost());
+  }, []);
+
   return <ul>{ingredientElements}</ul>;
 };
 
 export default Ingredients;
-
-// const getIngredientCost = () => {
-//   let ingredientCost = ingredientsNeeded.map(
-//     (ingredient) => ingredient.estimatedCostInCents
-//   );
-
-//   let total = ingredientCost.reduce((acc, current) => {
-//     return acc + current;
-//   }, 0);
-
-//   return total / 100;
-// };

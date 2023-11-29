@@ -13,7 +13,7 @@ const Home = () => {
   const [selectedRecipe, setSelectedRecipe] = useState<
     RecipeType | undefined
   >();
-  const [ingredients, setIngredients] = useState(ingredientsData);
+  const [ingredients] = useState(ingredientsData);
 
   const getRecipeDetails = (id: number) => {
     setModalActive(!modalActive);
