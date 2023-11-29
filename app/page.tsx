@@ -4,6 +4,7 @@ import { useState } from "react";
 import Modal from "./ui/Modal";
 import Recipes from "./ui/Recipes";
 import { recipeData } from "./data/recipes";
+import { ingredientsData } from "./data/ingredients";
 import { RecipeType } from "./lib/definitions";
 
 const Home = () => {
@@ -12,8 +13,7 @@ const Home = () => {
   const [selectedRecipe, setSelectedRecipe] = useState<
     RecipeType | undefined
   >();
-
-  // console.log(selectedRecipe);
+  const [ingredients, setIngredients] = useState(ingredientsData);
 
   const getRecipeDetails = (id: number) => {
     setModalActive(!modalActive);
@@ -25,7 +25,9 @@ const Home = () => {
     <main className="max-w-[1640px] mx-auto p-8">
       <h1>RecipeRealm</h1>
 
-      {modalActive && <Modal selectedRecipe={selectedRecipe} />}
+      {modalActive && (
+        <Modal selectedRecipe={selectedRecipe} ingredients={ingredients} />
+      )}
 
       {!modalActive && (
         <Recipes recipes={recipes} getRecipeDetails={getRecipeDetails} />

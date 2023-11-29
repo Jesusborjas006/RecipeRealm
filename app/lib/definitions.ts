@@ -6,3 +6,9 @@ export type RecipeType = {
   name: string;
   tags: string[];
 };
+
+export type IngredientType = {
+  estimatedCostInCents: number;
+  id: number;
+  name: string;
+};
