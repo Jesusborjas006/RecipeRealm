@@ -51,11 +51,9 @@ const Ingredients = ({
   }, []);
 
   return (
-    <div className="">
-      <h4 className="text-2xl font-bold my-2">Ingredients</h4>
-      <ul className=" text-gray-700 overflow-scroll h-[450px]">
-        {ingredientElements}
-      </ul>
+    <div className="w-[35%]">
+      <h4 className="text-[1.7rem] font-semibold mb-6">Ingredients</h4>
+      <ul className=" text-gray-700">{ingredientElements}</ul>
     </div>
   );
 };

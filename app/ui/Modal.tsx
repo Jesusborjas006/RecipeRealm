@@ -24,33 +24,32 @@ const Modal = ({ selectedRecipe, ingredients, setModalActive }: ModalProps) => {
         >
           X
         </p>
-        <div className="flex gap-x-12">
-          <div className="w-[30%]">
-            <Image
-              className="rounded-lg mb-6"
-              src={selectedRecipe!.image}
-              alt={selectedRecipe!.image}
-              width={556}
-              height={370}
-            />
 
-            <Ingredients
-              recipeIngredients={selectedRecipe?.ingredients}
-              ingredients={ingredients}
-              setTotalForRecipe={setTotalForRecipe}
-            />
-          </div>
+        <div className="flex items-center">
+          <Image
+            className="rounded-lg mb-6 w-[35%]"
+            src={selectedRecipe!.image}
+            alt={selectedRecipe!.image}
+            width={556}
+            height={370}
+          />
 
-          <div className="w-[60%] ">
+          <div className="w-[65%] mx-12">
             <h2 className="text-4xl font-bold mb-6">{selectedRecipe?.name}</h2>
-            <button className="bg-orange-400 text-white w-full p-2 rounded-md font-bold text-lg ">
+            <button className="bg-orange-400 text-white w-full p-2 rounded-md font-bold text-lg">
               Save Recipe
             </button>
-
-            <div className="overflow-y-scroll h-[550px]">
-              <Instructions recipeInstructions={selectedRecipe?.instructions} />
-            </div>
           </div>
+        </div>
+
+        <div className="flex items-start mt-8 overflow-scroll h-[400px]">
+          <Ingredients
+            recipeIngredients={selectedRecipe?.ingredients}
+            ingredients={ingredients}
+            setTotalForRecipe={setTotalForRecipe}
+          />
+
+          <Instructions recipeInstructions={selectedRecipe?.instructions} />
         </div>
       </div>
     </div>
