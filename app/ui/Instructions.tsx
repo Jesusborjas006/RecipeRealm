@@ -14,8 +14,8 @@ const Instructions = ({ recipeInstructions }: InstructionsProps) => {
   ));
 
   return (
-    <div className="w-[65%] mx-12">
-      <h4 className="text-[1.7rem] font-semibold ">Directions</h4>
+    <div className="md:w-[65%] md:mx-12 mt-10 md:mt-0">
+      <h4 className="text-2xl font-semibold ">Directions</h4>
       <ul>{instructionElements}</ul>
     </div>
   );

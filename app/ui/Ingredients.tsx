@@ -51,8 +51,8 @@ const Ingredients = ({
   }, []);
 
   return (
-    <div className="w-[35%]">
-      <h4 className="text-[1.7rem] font-semibold mb-6">Ingredients</h4>
+    <div className="w-full md:w-[35%]">
+      <h4 className="mt-4 md:mt-0 text-2xl  font-semibold mb-6">Ingredients</h4>
       <ul className=" text-gray-700">{ingredientElements}</ul>
     </div>
   );

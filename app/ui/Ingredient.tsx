@@ -6,9 +6,15 @@ type IngredientType = {
 };
 
 const Ingredient = ({ quantity, name }: IngredientType) => {
+  const getQuantityElement = () => {
+    if (String(quantity.amount.length >= 3)) {
+      return Number(quantity.amount.toFixed(2));
+    }
+  };
+
   return (
     <li className="border-b pb-2 my-4 text-lg">
-      {Number(quantity.amount).toFixed(2)} {quantity.unit} {name}
+      {getQuantityElement()} {quantity.unit} {name}
     </li>
   );
 };
