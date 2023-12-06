@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Modal from "./ui/Modal";
 import Recipes from "./ui/Recipes";
 import { recipeData } from "./data/recipes";
@@ -15,9 +15,17 @@ const Home = () => {
   >();
   const [ingredients] = useState(ingredientsData);
 
-  modalActive
-    ? (document.body.style.overflow = "hidden")
-    : (document.body.style.overflow = "auto");
+  useEffect(() => {
+    if (modalActive) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [modalActive]);
 
   const getRecipeDetails = (id: number) => {
     setModalActive(!modalActive);
