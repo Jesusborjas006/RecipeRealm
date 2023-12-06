@@ -50,7 +50,14 @@ const Ingredients = ({
     setTotalForRecipe(getIngredientCost());
   }, []);
 
-  return <ul>{ingredientElements}</ul>;
+  return (
+    <div className="">
+      <h4 className="text-2xl font-bold my-2">Ingredients</h4>
+      <ul className=" text-gray-700 overflow-scroll h-[450px]">
+        {ingredientElements}
+      </ul>
+    </div>
+  );
 };
 
 export default Ingredients;

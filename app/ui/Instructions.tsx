@@ -13,7 +13,12 @@ const Instructions = ({ recipeInstructions }: InstructionsProps) => {
     />
   ));
 
-  return <div>{instructionElements}</div>;
+  return (
+    <div className="mt-10">
+      <h4 className="text-2xl font-bold my-4 ">Directions</h4>
+      <ul>{instructionElements}</ul>
+    </div>
+  );
 };
 
 export default Instructions;

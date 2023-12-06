@@ -15,6 +15,10 @@ const Home = () => {
   >();
   const [ingredients] = useState(ingredientsData);
 
+  modalActive
+    ? (document.body.style.overflow = "hidden")
+    : (document.body.style.overflow = "auto");
+
   const getRecipeDetails = (id: number) => {
     setModalActive(!modalActive);
     const recipe = recipes.find((recipe) => recipe.id === id);
@@ -26,12 +30,14 @@ const Home = () => {
       <h1>RecipeRealm</h1>
 
       {modalActive && (
-        <Modal selectedRecipe={selectedRecipe} ingredients={ingredients} />
+        <Modal
+          selectedRecipe={selectedRecipe}
+          ingredients={ingredients}
+          setModalActive={setModalActive}
+        />
       )}
 
-      {!modalActive && (
-        <Recipes recipes={recipes} getRecipeDetails={getRecipeDetails} />
-      )}
+      <Recipes recipes={recipes} getRecipeDetails={getRecipeDetails} />
     </main>
   );
 };

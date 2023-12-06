@@ -7,11 +7,9 @@ type IngredientType = {
 
 const Ingredient = ({ quantity, name }: IngredientType) => {
   return (
-    <>
-      <li>
-        {quantity.amount} {quantity.unit} {name}
-      </li>
-    </>
+    <li className="border-b pb-2 my-4 ">
+      {quantity.amount} {quantity.unit} {name}
+    </li>
   );
 };
 

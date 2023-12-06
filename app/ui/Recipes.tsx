@@ -17,7 +17,7 @@ const Recipes = ({ recipes, getRecipeDetails }: RecipesProps) => {
     />
   ));
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-6 gap-y-10 ">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-6 gap-y-10">
       {recipeElements}
     </div>
   );

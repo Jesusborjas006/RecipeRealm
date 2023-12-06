@@ -5,9 +5,10 @@ type InstructionProps = {
 
 const Instruction = ({ instruction, number }: InstructionProps) => {
   return (
-    <p className="">
-      <strong>Step {number}:</strong> {instruction}
-    </p>
+    <li className="my-6 flex ">
+      <strong className="text-orange-500 mr-3">{number}</strong>
+      <p>{instruction}</p>
+    </li>
   );
 };
 
