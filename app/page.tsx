@@ -34,7 +34,7 @@ const Home = () => {
   };
 
   return (
-    <main className="max-w-[1640px] mx-auto p-8">
+    <main className="max-w-[1640px] mx-auto p-6">
       <h1>RecipeRealm</h1>
 
       {modalActive && (
